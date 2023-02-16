@@ -1,4 +1,10 @@
+This site is hosted on 
+https://dnncamargo.github.io/react-crud-firebase
+
+And it was inspired on
+
 https://www.youtube.com/watch?v=jCY6DH8F4oc
+
 
 # Getting Started with Create React App
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { db } from './firebase-config'
-import { collection, getDocs, addDoc, updateDoc, doc } from "firebase/firestore"
+import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc } from "firebase/firestore"
 import './App.css';
 
 function App() {
@@ -21,6 +21,12 @@ function App() {
         const userDoc = doc(db, "users", id)
         const newFields = {age: age + 1}
         await updateDoc(userDoc, newFields)
+    }
+
+    const deleteUser = async (id) => {
+        const userDoc = doc(db, "users", id);
+        await deleteDoc(userDoc);
+        alert('User deleted')
     }
 
     /* executa a função a cada vez que a página renderiza */
@@ -68,8 +74,10 @@ function App() {
                     <h1>Age: { user.age }</h1>
                     <button onClick={() => {
                         updateUser(user.id, user.age)
-                    }}>Increase age</button>
-                    <button onClick={() => {deleteUser}}>Delete user</button>
+                        }}>Increase age</button>
+                    <button onClick={() => {
+                        deleteUser(user.id)
+                        }}>Delete user</button>
                     </div>
             })}
         </div>
