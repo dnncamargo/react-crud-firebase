@@ -30,7 +30,7 @@ function App() {
     }
 
     /* executa a função a cada vez que a página renderiza */
-    useEffect(() => {
+    // useEffect(() => {
         /* busca os dados no firebase retornando uma Promise 
            useEffect não pode ser async, deste modo, criamos uma função async dentro do escopo */
         const getUsers = async () => {
@@ -51,7 +51,7 @@ function App() {
 
         /** após definir a função, esta deve ser chamada */
         getUsers();
-    }, []);
+    // }, []);
 
     return (
         <div className="App">
